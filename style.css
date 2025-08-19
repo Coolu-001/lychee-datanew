@@ -1,0 +1,980 @@
+.cover-text-gradient {
+  background: linear-gradient(90deg, #f8786c 10%, #6B8E23 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInText 1.2s cubic-bezier(.4,2,.6,1);
+}
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+/* 封面主图动效 */
+.cover-img-animate {
+  z-index: 1;
+  box-shadow: 0 8px 40px #f8786c33, 0 2px 12px #e1eda0cc;
+  animation: coverImgIn 1.2s cubic-bezier(.4,2,.6,1), imgFloat 3.5s 1.2s cubic-bezier(.4,2,.6,1) infinite alternate;
+}
+@keyframes coverImgIn {
+  from { opacity: 0; transform: scale(0.7) translateY(40px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes imgFloat {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-18px) scale(1.03); }
+  100% { transform: translateY(0) scale(1); }
+}
+@font-face {
+    font-family: 'Siyuan-regular';
+    src: url('../font/SourceHanSerifCN-Regular_0.otf');
+}
+
+/* 颜色变量 */
+:root {
+    --main-green: #6B8E23;
+    --lichi-red: #f8786c;
+    --ivory-bg: #e1eda0;
+    --text-dark: #2C3E50;
+    --cover-bg: #e1eda0;
+    --sidebar-text:#804e46;
+    --sidebar-color:#f8786c;
+
+}
+
+/* 全局 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Siyuan-regular', serif;
+    scroll-behavior: smooth;
+}
+
+/* 封面 */
+.cover0 {
+    width: 100%;
+    height: 100vh;
+    background:
+    url("image/封面背景.jpg") center center/cover no-repeat;
+}
+/* 封面整体 */
+.cover {
+  position: relative;
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+/* 封面图 */
+.cover-img {
+  max-width: 100%;   /* 控制图片大小 */
+  height: auto;
+  display: block;
+  margin: 0 auto 0px auto; /* 居中并和文字拉开距离 */
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); /* 柔和阴影 */
+  transition: transform 0.3s ease;
+}
+
+.cover-img:hover {
+  transform: scale(1.05); /* 鼠标悬停时轻微放大 */
+}
+
+/* 封面文字 */
+.cover-text {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  font-weight: 500;
+  color: #333;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: "STSong", "KaiTi", serif; /* 中文优雅字体 */
+}
+
+
+.highlight {
+    background-color: #fff59d; 
+    padding: 2px 6px;           
+    border-radius: 4px;        
+    font-weight: bold;           
+}
+
+/* 向下滚动提示 */
+.scroll-indicator {
+    position: absolute;
+    bottom: 50px;
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--main-green);
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    box-sizing: border-box;
+}
+
+.scroll-indicator::after {
+    content: '';
+    width: 4px;
+    height: 8px;
+    background-color: var(--main-green);
+    border-radius: 2px;
+    animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(15px); opacity: 0; }
+}
+
+/* 左侧目录 */
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100%;
+    background-color: var(--sidebar-color);
+    padding-top: 50px;
+    border-radius: 10px;
+    border-right: 5px solid rgba(107,142,35,0.2);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    z-index: 100;
+}
+
+#sidebar.visible {
+    transform: translateX(0);
+}
+
+#sidebar svg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+}
+
+#sidebar text {
+    fill: var(--sidebar-text);
+    font-family: 'Siyuan-regular', serif;
+    font-size: 35px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#sidebar text.active {
+    fill: var(--cover-bg);
+    font-size: 48px;
+    font-weight: bold;
+}
+
+#lizhi-icon-svg {
+    transition: x 0.5s ease, y 0.5s ease;
+}
+
+
+
+/* 内容区域 */
+#content {
+    margin-left: 0;
+    padding: 50px;
+    flex: 1;
+    background-color: var(--ivory-bg);
+    transition: margin-left 0.5s ease;
+}
+
+#content.with-sidebar {
+    margin-left: 220px;
+}
+
+section {
+    min-height: 100vh;
+    padding: 40px 30px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+}
+
+section h3 {
+    font-family: 'Siyuan-regular', serif;
+    color: var(--main-green);
+    font-size: 26px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+section p {
+    font-family: 'Siyuan-regular', serif;
+    font-size: 24px;
+    line-height: 2;
+    min-height: 50px;
+    color: var(--text-dark);
+}
+
+/* 小屏适配 */
+@media (max-width:768px){
+    #sidebar{display:none;}
+    #content{margin-left:0 !important; padding:20px;}
+    .cover h1 {font-size: 3.5em;}
+    .cover h2 {font-size: 1.5em;}
+}
+
+/* 荔枝品种翻转卡片样式 */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 220px);
+    justify-content: center; 
+    gap: 60px; 
+    margin: 40px auto;
+    padding: 10px;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 220px;   
+    height: 280px;  
+    perspective: 1000px; 
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, 
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.flip-card-front {
+    background: #f8f8e2 80%;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+}
+
+.flip-card-front h4 {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.flip-card-back {
+    background: #6B8E23; 
+    color: white;
+    transform: rotateY(180deg);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.flip-card-back h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.flip-card-back p {
+    font-size: 16px; 
+    line-height: 1.4;
+    text-align: left; 
+}
+
+.data-viz-container {
+    display: flex;
+    gap: 40px; /* 左右两大区块的间距 */
+    margin: 50px auto;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  /* 左侧列：地形图 + 按钮 */
+  .left-panel {
+    width: 50%;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    margin-right: 30px; 
+  }
+  
+  .terrain-with-buttons {
+    display: flex;
+    gap: 20px; 
+    align-items: flex-end;
+    width: 100%;
+  }
+  
+  .left-panel .terrain-map {
+    width: 100%; 
+    border-radius: 12px;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 20px;
+    margin-bottom: 140px; 
+  }
+  
+  /* 单个按钮基础样式 */
+  .viz-btn {
+    width: 15px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+  
+  .viz-btn:hover {
+    border-color: #ffffff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  }
+  
+  .viz-btn:nth-child(1) {
+    background-color: #b7e1a1; /* 浅绿 */
+  }
+  .viz-btn:nth-child(2) {
+    background-color: #8cc96c; /* 中浅绿 */
+  }
+  .viz-btn:nth-child(3) {
+    background-color: #5fa946; /* 中深绿 */
+  }
+  .viz-btn:nth-child(4) {
+    background-color: #2f6b23; /* 深绿 */
+  }
+  
+  /* 右侧展示区 */
+  .right-panel {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .right-panel .viz-img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .right-panel .viz-text {
+    font-family: 'Siyuan-regular', serif;
+    font-size: 18px;
+    color: var(--text-dark);
+    line-height: 1.6;
+    text-align: left;
+  }
+  
+  /* 小屏适配 */
+  @media (max-width: 768px) {
+    .data-viz-container {
+      flex-direction: column;
+    }
+  
+    .left-panel {
+      width: 100%;
+      margin-right: 0; 
+    }
+  
+    .right-panel {
+      width: 100%;
+    }
+  
+    .terrain-with-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .button-group {
+      flex-direction: row;
+      margin-top: 10px;
+      margin-bottom: 0;
+      width: auto;
+    }
+  }
+
+  .hint-text {
+    font-size: 20px;
+    color: #4a7c2e; /* 深绿，和按钮呼应 */
+    margin: 5px 0;   
+    font-style: normal;
+    text-align: center; 
+  }
+
+  
+/* part2 css*/
+
+.pipeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px; /* 调整行列之间的间距，原本默认是0，你可以设更小 */
+    margin-bottom: 4px;
+    position: relative;
+  }
+  /* pipeline右下角荔枝图片专用样式 */
+  .pipeline-lizhi-img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 250px;
+    z-index: 2;
+    margin: 0 0 0 0;
+    transform: scaleX(-1);
+  }
+  
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px; /* 从18px减小到8px，减少图片之间的留白 */
+    position: relative;
+  }
+  
+  .step img {
+    width: 180px; /* 调整一下图片宽度以贴合新的间距 */
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 6px; /* 减小底部间距 */
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+  }
+  
+  .step img.step-img-in {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  
+  
+  .step img:hover {
+    transform: translateY(-8px);
+    width: 250px;
+  }
+  
+  
+  .step h4 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+    color: var(--main-green);
+  }
+  
+  .step h5 {
+    font-size: 1em;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+  }
+  
+  
+  .step .footprint {
+    font-size: 0.95em;
+    font-weight: bold;
+    color: #ff4d4f;
+  }
+  
+  .step .tooltip {
+    position: absolute;
+    bottom: 5px;
+    right: 30%;
+    transform: translateX(-50%) translateY(0%);
+    width: 340px;
+    background: #fdfcd4 80%;
+    padding: 18px 22px 18px 22px;
+    border-radius: 18px 18px 22px 22px;
+    font-size: 1em;
+    line-height: 1.8;
+    color: var(--text-dark);
+    box-shadow: 0 10px 28px 0 rgba(107,142,35,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+    border: 1.5px solid #e1eda0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(.4,2,.6,1), transform 0.4s cubic-bezier(.4,2,.6,1);
+    will-change: opacity, transform;
+    transform: translateX(-50%) translateY(20px);
+    z-index: 20;
+    filter: drop-shadow(0 2px 8px rgba(248,120,108,0.08));
+    font-family: 'Siyuan-regular', serif;
+    letter-spacing: 0.01em;
+    backdrop-filter: blur(2px);
+    border-bottom: 3px solid #f8786c33;
+  }
+  .step .tooltip1 {
+    position: absolute;
+    bottom: 5px;
+    left: 150%;
+    transform: translateX(-50%) translateY(0%);
+    width: 340px;
+    background: #fdfcd4 80%;
+    padding: 18px 22px 18px 22px;
+    border-radius: 18px 18px 22px 22px;
+    font-size: 1em;
+    line-height: 1.8;
+    color: var(--text-dark);
+    box-shadow: 0 10px 28px 0 rgba(107,142,35,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+    border: 1.5px solid #e1eda0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(.4,2,.6,1), transform 0.4s cubic-bezier(.4,2,.6,1);
+    will-change: opacity, transform;
+    transform: translateX(-50%) translateY(20px);
+    z-index: 20;
+    filter: drop-shadow(0 2px 8px rgba(248,120,108,0.08));
+    font-family: 'Siyuan-regular', serif;
+    letter-spacing: 0.01em;
+    backdrop-filter: blur(2px);
+    border-bottom: 3px solid #f8786c33;
+  }
+  
+  
+  .step:hover .tooltip {
+    opacity: 1;
+    animation: tooltipIn 0.45s cubic-bezier(.4,2,.6,1);
+    transform: translateX(-50%) translateY(0);
+  }
+  .step:hover .tooltip1 {
+    opacity: 1;
+    animation: tooltipIn 0.45s cubic-bezier(.4,2,.6,1);
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  @keyframes tooltipIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+  
+  /* 新增文字段落的样式 */
+  .content-section {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #fdfdfd, #f7f7f7);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    line-height: 1.8;
+  }
+  
+  .content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2b4c3f;
+    border-left: 6px solid #4caf7d;
+    padding-left: 12px;
+    font-weight: bold;
+  }
+  
+  .content-section p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 16px;
+    text-align: justify;
+  }
+  
+  /* 避免图片与悬停卡片重叠 */
+  .image-section {
+    position: relative;
+    margin: 60px auto;
+    text-align: center;
+  }
+  
+  .image-section img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* 卡片悬停优化 */
+  .card {
+    position: relative;
+    background: white;
+    padding: 20px;
+    margin-top: 30px; /* ✅ 避免压到图片 */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 5; /* 保证在图片上方但不重叠 */
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+
+/* part2 css结束*/
+
+/*part4 css/
+/* 冷链土地段落左右分布样式 */
+.land-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 36px;
+  margin: 36px 0 32px 0;
+}
+
+.land-img {
+  height: auto;
+  width: 200px;
+  object-fit: contain;
+  align-self: center;
+}
+@media (max-width: 700px) {
+  .land-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .land-img {
+    max-width: 90vw;
+    max-height: 120px;
+  }
+}
+
+@media (max-width: 700px) {
+  .land-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .land-img {
+    max-width: 90vw;
+    max-height: 120px;
+  }
+}
+
+/* part 4 */
+.transport-img-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 32px;
+  margin: 30px 0 24px 0;
+}
+.transport-img {
+  width: 400px;
+  max-width: 40vw;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+  transition: transform 0.5s cubic-bezier(.4,2,.6,1), box-shadow 0.5s;
+  cursor: pointer;
+}
+
+/* 高亮句子入场动效 */
+.highlight-tittle {
+    background-color: #e1eda0; 
+    padding: 2px 6px;                
+    font-weight: bold;           
+}
+.highlight-animate {
+  display: inline-block;
+  opacity: 0.3;
+  transform: scale(0.5);
+  transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+}
+.highlight-animate.highlight-in {
+  opacity: 1;
+  transform: scale(1);
+}
+/* part 4结束 */
+
+/* 技术模块卡片样式：去掉半透明背景 */
+.tech-module {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0px 0;
+  padding: 30px 30px;
+  border-radius: 20px;
+  position: relative;
+  overflow: visible; /* 保证动感图片不被裁掉 */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* 反向布局 */
+.tech-module.reverse {
+  flex-direction: row-reverse;
+}
+
+/* 卡片文字区 */
+.tech-content {
+  flex: 3 1 0%;
+  position: relative;
+  z-index: 2;
+  max-width: none; /* 取消最大宽度限制 */
+  min-width: 0;
+}
+
+.tech-content h4 {
+  font-size: 24px;
+  color: #2b4c3f;
+  margin-bottom: 20px;
+  padding-left: 18px;
+  border-left: 5px solid #6B8E23;
+}
+
+/* 卡片图片区 */
+.tech-images {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: relative;
+}
+
+.tech-img {
+  width: 100%;
+  border-radius: 15px;
+  transition: transform 0.4s ease;
+}
+
+/* 飞行动画类：平腹小蜂、荔枝蝽 */
+.fly {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-6px) rotate(-3deg); }
+  50% { transform: translateY(0px) rotate(0deg); }
+  75% { transform: translateY(6px) rotate(3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* 响应式调整 */
+@media (max-width: 900px) {
+  .tech-module,
+  .tech-module.reverse {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .tech-images {
+    flex: none;
+    width: 100%;
+    max-width: 380px;
+  }
+}
+
+/* 总容器左右布局：移除固定占比，改用弹性分配 */
+#section5 .chart-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* 增加内边距，避免边缘紧贴 */
+  box-sizing: border-box; /* 确保内边距不影响总宽度 */
+  gap: 20px; /* 用gap替代margin，避免宽度计算问题 */
+}
+
+/* 左半边地图：自适应宽度，最大不超过50% */
+.left-chart {
+  flex: 1; /* 弹性分配宽度 */
+  max-width: 50%; /* 最大占比50%，避免过宽 */
+  box-sizing: border-box;
+}
+
+
+.left-chart h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #2C3E50;
+}
+.right-chart h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #2C3E50;
+}
+.map-box h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #2C3E50;
+}
+#lychee-map {
+  width: 100%;
+  height: 600px;
+}
+/* 右半边：自适应剩余宽度 */
+.right-chart {
+  flex: 1; /* 弹性分配剩余宽度 */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 内部元素间距 */
+  box-sizing: border-box;
+}
+
+/* 图表盒子 */
+.chart-box {
+  width: 80%;
+  height: 400px; 
+  box-sizing: border-box;
+}
+
+/* 单独给地图用的容器 */
+.map-box {
+  width: 80%;   
+  height: 300px;
+  box-sizing: border-box;
+}
+
+
+/* 标题 */
+.chart-box h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #2C3E50;
+  text-align: center;
+}
+
+/* ECharts 容器自适应右侧宽度 */
+.chart-inner {
+  width:100%;
+  height: 250px;
+}
+
+/* 桑基图图片自适应 */
+.sankey-img {
+  width: 100%;      /* 限制在父容器宽度内 */
+  max-width: 100%;
+  height: auto;    
+  display: block;
+  margin: 0 auto;
+}
+
+/*part5*/
+/* 出口贸易数据行布局优化 */
+.trade-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin: 32px 0;
+}
+.trade-row p {
+  font-family: 'Siyuan-regular', serif;
+  font-size: 24px;
+  line-height: 2;
+  min-height: 50px;
+  color: var(--text-dark);
+}
+.trade-img {
+  width: 500px;
+  height: auto;
+  display: block;           /* 让图片变成块元素 */
+  margin: 0 auto;           /* 左右自动外边距，居中 */
+  transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.4s;
+  cursor: pointer;
+}
+.trade-img:hover {
+  transform: scale(1.25);
+  z-index: 2;
+}
+@media (max-width: 800px) {
+  .trade-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .trade-img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
+  .policy-img-row {
+    display: flex;
+    flex-wrap: wrap; /* ✅ 窄屏自动换行 */
+    justify-content: center;
+    gap: 24px; /* 图片间距 */
+    margin: 20px 0;
+  }
+
+  .policy-img-row img {
+    max-width: 380px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .policy-img-row img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.16);
+  }
+
+.orange-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 36px;
+  margin: 36px 0 32px 0;
+}
+
+.orange-img {
+  height: auto;
+  width: 500px;
+  object-fit: contain;
+  align-self: center;
+}
+/*part5 结束*/
+
+.team-footer {
+  text-align: center;
+  margin: 60px 0 40px 0; /* 上下间距 */
+  font-family: 'Siyuan-regular', serif;
+  color: var(--text-dark); /* 与正文一样颜色 */
+}
+
+.team-footer h3 {
+  font-size: 28px; /* 比正文大一点 */
+  margin-bottom: 15px;
+  color: var(--main-green); /* 如果想标题绿色，可用主色 */
+}
+
+.team-footer p {
+  font-size: 24px; /* 和正文一样大 */
+  margin: 4px 0;
+  line-height: 1.6;
+}

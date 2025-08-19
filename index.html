@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>碳索鲜荔</title>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+<script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/maps/china.js"></script>
+</head>
+<body>
+
+
+
+<!-- 封面 -->
+<div class="cover0" id="0">
+  <!-- 封面渐变光斑背景 -->
+  <div class="cover-bg-deco"></div>
+  <img src="image/cover1.png" alt="封面1" class="cover-img cover-img-animate">
+  <div class="scroll-indicator"></div>
+</div>
+
+<!-- 左侧目录 + 内容 -->
+<div id="sidebar">
+    <svg width="200" height="110" viewBox="0 0 200 1400">
+        <defs>
+          <filter id="yellow-glow" x="-150%" y="-150%" width="400%" height="400%">
+            <feDropShadow dx="0" dy="0" stdDeviation="28" flood-color="#ffe066" flood-opacity="1"/>
+          </filter>
+        </defs>
+        <path id="path" 
+              d="M100,50 C150,150 50,300 100,400 C150,500 50,650 100,750 C150,850 50,950 100,1180" 
+              stroke="#6B8E23"
+              stroke-width="6" 
+              fill="none" 
+              stroke-linecap="round"
+              stroke-dasharray="6,20"/>
+        <image id="lizhi-icon-svg" href="image/单个小荔枝.png" x="-25" y="-25" width="90" height="90" filter="url(#yellow-glow)"/>
+        <text x="45" y="40" data-target="1">诞生山野间</text>
+        <text x="-5" y="270" data-target="2">从枝头到舌尖</text>
+        <text x="-40" y="405" data-target="3">生产新范式</text>
+        <text x="20" y="680" data-target="4">冷链vs常温</text>
+        <text x="-50" y="810" data-target="5">出口低碳新时代</text>
+        <text x="80" y="1180" data-target="6">结尾</text>
+    </svg>
+</div>
+<div id="content">
+    <div class="cover" id="1">
+      <img src="image/cover2.png" alt="封面2" class="cover-img">
+    <p class="cover-text cover-text-gradient" style="font-size:1.3em; font-weight:bold; text-align:center; margin:18px auto 0; max-width:700px; letter-spacing:0.06em; text-shadow:0 2px 12px #fff8, 0 4px 24px #e1eda0cc;">——我是一颗荔枝。我的故事，始于岭南丘陵的暖风与雨露——</p>
+    </div>
+    <section id="section1">
+        <h3>诞生山野间</h3>
+        <p>
+          自雍正八年（1730 年）的《从化县志·物产志》记载“果之品三十有五，而荔枝为魁，核小而脂肥”以来，
+          这片土地便与我的名字紧紧相连。清代的屈大均在《广州荔枝词》中写下：
+          “五年不见水晶丸，今日酸时已饱餐”，那是对我初熟时清甜滋味的最好注解。<br>
+          <br>几个世纪后，我依然在这片被诗句描绘过的山坡上生长。你要赋予我怎样的名字？<br><br>
+          在果园深处，我和同伴们静静挂在枝头。我们有着不同的外衣、不同的性格——
+          妃子笑的清脆甜爽、桂味的花香馥郁、状元红的沉稳浓郁、井岗红糯的红润多汁……当你走在枝叶间，阳光透过叶片洒下，伸手触碰到我们时，<span class="highlight">轻轻翻转，就能看到我的全部“档案”</span>：
+        </p>
+        
+      
+        <!-- 翻转卡片容器 -->
+        <div class="card-container">
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="image/妃子笑.png" alt="妃子笑">
+                <h4>妃子笑</h4>
+              </div>
+              <div class="flip-card-back">
+                <h4>妃子笑</h4>
+                <p>
+                  果形：长心形，果色淡红黄绿色<br>
+                  果肉：清脆甜爽，汁多味浓<br>
+                  规格：优等 &lt;35g，一等 35–40g，合格 &lt;50g<br>
+                  风味：可食率78–83%，固形物17–20%，酸度0.23–0.30%
+                </p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="image/糯米糍.png" alt="糯米糍">
+                <h4>糯米糍</h4>
+              </div>
+              <div class="flip-card-back">
+                <h4>糯米糍</h4>
+                <p>
+                  果形：卵圆形，果色近圆暗红<br>
+                  果肉：肉厚质嫩，汁多清甜<br>
+                  规格：优等 &lt;38g，一等 38–50g，合格 &lt;56g<br>
+                  风味：可食率82–86%，固形物18–21%，酸度0.18–0.26%
+                </p>
+              </div>
+            </div>
+          </div>
+ 
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="image/状元红.png" alt="状元红">
+                <h4>状元红</h4>
+              </div>
+              <div class="flip-card-back">
+                <h4>状元红</h4>
+                <p>
+                  果形：近圆形，果色深红<br>
+                  果肉：甜中带酸，滋味浓郁<br>
+                  规格：优等 &lt;42g，一等 42–54g，合格 &lt;58g<br>
+                  风味：可食率76–80%，固形物16–18%，酸度0.31–0.35%
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="image/桂味.png" alt="桂味">
+                <h4>桂味</h4>
+              </div>
+              <div class="flip-card-back">
+                <h4>桂味</h4>
+                <p>
+                  果形：扁圆形，果色紫红<br>
+                  果肉：脆嫩爽口，花香馥郁<br>
+                  规格：优等 &lt;56g，一等 56–64g，合格 &lt;70g<br>
+                  风味：可食率78–83%，固形物18–21%，酸度0.15–0.21%
+                </p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="image/怀枝.png" alt="怀枝">
+                <h4>怀枝</h4>
+              </div>
+              <div class="flip-card-back">
+                <h4>怀枝</h4>
+                <p>
+                  果形：心脏形，果色鲜红<br>
+                  果肉：甜中微酸，风味浓厚<br>
+                  规格：优等 &lt;38g，一等 38–44g，合格 &lt;52g<br>
+                  风味：可食率68–72%，固形物17–20%，酸度0.15–0.20%
+                </p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="image/井岗红糯.png" alt="井岗红糯">
+                <h4>井岗红糯</h4>
+              </div>
+              <div class="flip-card-back">
+                <h4>井岗红糯</h4>
+                <p>
+                  果形：心形，果色鲜红<br>
+                  果肉：汁多甘甜，核小肉厚<br>
+                  规格：优等 &lt;38g，一等 38–50g，合格 &lt;56g<br>
+                  风味：可食率80%，固形物17–20%，酸度0.15–0.35%
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h5 align="right">（数据来源于：《从化华隆荔枝最新执行标准》）</h5>
+
+        <p>
+            当你选定了我，我便会带你飞越枝叶与山坡，回到我扎根的土地：广东省广州市从化区江埔街道，这里位于粤北山地与珠江三角洲平原的过渡带，北接山区，南临平原，地形呈东南高、西北低的格局。<br>
+            <br>江埔街道属于亚热带季风气候区，年均气温 21.5 ℃，年降水量 1,992.7 mm，年日照时长 1,588 小时。光、热、水资源丰富，这样的气候为荔枝生长提供了天然保障。
+          </p>
+
+          <p class="hint-text">
+          （轻触绿色按钮探索荔枝出生地）
+          </p>
+          
+          
+          <div class="data-viz-container">
+            <div class="left-panel">
+
+              
+              <div class="terrain-with-buttons">
+                <img src="image/地形图.png" alt="江埔街道地形图" class="terrain-map">
+          
+                <div class="button-group">
+                  <div class="viz-btn" data-img="image/海拔.png" data-text="江埔街道海拔高度分布图<br>江埔街道整体呈东南高、西北低的地势，海拔主要在 0–100 m。<br>低海拔区（<50 m）温差小、灌溉便利，有利于果实糖分积累；中海拔缓坡（50–100 m）日照充足，使荔枝风味更浓。"></div>
+                  <div class="viz-btn" data-img="image/宜植区.png" data-text="江埔街道荔枝宜植地分布图<br>在这幅图上，你会看到最适合荔枝生长的区域——它们多位于海拔 0–100 m、坡度 ≤9° 的丘陵缓坡。<br>这类区域土壤肥沃疏松、排水良好，光照和温湿度稳定，是我生长的黄金地带。"></div>
+                  <div class="viz-btn" data-img="image/土壤.png" data-text="江埔街道土壤类型分布图<br>我脚下的土壤主要有两种：<br>赤红壤偏酸、透气、富含有机质，是荔枝的基础土壤；而潮土质地疏松、肥力高，多在流溪河两岸的低地分布。这两种土壤都非常适合荔枝种植，各有优势，互为补充。"></div>
+                  <div class="viz-btn" data-img="image/利用类型.png" data-text="江埔街道土地利用类型分布图<br>大片果园与林地交错分布，形成了生态缓冲带，减少风害和病虫害风险。江埔街道荔枝种植适宜面积为55 km2左右，计算其他土地利用途径后与监督分类数据44.63 km2吻合，农田、水域与建设用地零星分布，维持了生态与生产的平衡。"></div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="right-panel">
+              <img src="image/海拔.png" alt="可视化图" class="viz-img">
+              <div class="viz-text">
+                江埔街道海拔高度分布图<br>江埔街道整体呈东南高、西北低的地势，海拔主要在 0–100 m。<br>低海拔区（<50 m）温差小、灌溉便利，有利于果实糖分积累；中海拔缓坡（50–100 m）日照充足，使荔枝风味更浓。
+              </div>
+            </div>
+          </div>
+          <h5 align="right">（数据来源于：从化荔枝江埔街亚热带低山丘陵生态环境保护与可持续发展案例数据集）</h5>
+      </section> 
+      
+    <div class="cover" id="2">
+    <img src="image/cover3.png" alt="封面3" class="cover-img">
+    <p class="cover-text cover-text-gradient" style="font-size:1.3em; font-weight:bold; text-align:center; margin:18px auto 0; max-width:700px; letter-spacing:0.06em; text-shadow:0 2px 12px #fff8, 0 4px 24px #e1eda0cc;">我跨越千里给你带来鲜甜<br>——从枝头到你的舌尖，每一步都留下“碳足迹”——</p>
+    </div>
+    <section id="section2">
+      <div class="text-container">
+      <h3>从“枝头”到“舌尖”</h3>
+      <p>
+        在“双碳”目标背景下，食品不仅仅是味觉享受，它们背后的环境账本同样值得关注。
+        荔枝需要复杂的冷链与物流体系才能保持鲜美，它们的旅程中隐藏着难以忽视的碳排放。
+      </p >
+      <p>
+        要想全面了解这份“甜蜜”背后的环境代价，我们需要一个科学的工具。
+        <span class="highlight">全生命周期评估法</span>是一种系统、全面评估产品或服务在其“从摇篮到坟墓”全过程中所产生温室气体排放总量的方法。
+      </p >
+      <h5 align="left">农产品供应链示意图:</h5>
+      <svg viewBox="0 0 1200 650" aria-labelledby="title desc" role="img">
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"></path>
+    </marker>
+  </defs>
+  <!-- 顶部：各环节说明（上）和参与主体（下） -->
+  <!-- 生产、包装、预冷 -> 生产商 -->
+  <g transform="translate(30,70)">
+    <rect class="box" x="0" y="0" width="220" height="48"/>
+    <text class="label" x="110" y="24">生产、包装、预冷</text>
+
+    <line class="arrow" x1="110" y1="50" x2="110" y2="92"/>
+    <rect class="box" x="35" y="92" width="150" height="46"/>
+    <text class="label" x="110" y="115">生产商</text>
+  </g>
+
+  <!-- 储存、运输、流通加工 -> 批发商 -->
+  <g transform="translate(300,70)">
+    <rect class="box" x="0" y="0" width="240" height="48"/>
+    <text class="label" x="120" y="24">储存、运输、流通加工</text>
+
+    <line class="arrow" x1="120" y1="50" x2="120" y2="92"/>
+    <rect class="box" x="60" y="92" width="120" height="46"/>
+    <text class="label" x="120" y="115">批发商</text>
+  </g>
+
+  <!-- 储存、销售 -> 零售商 -->
+  <g transform="translate(580,70)">
+    <rect class="box" x="0" y="0" width="180" height="48"/>
+    <text class="label" x="90" y="24">储存、销售</text>
+
+    <line class="arrow" x1="90" y1="50" x2="90" y2="92"/>
+    <rect class="box" x="30" y="92" width="120" height="46"/>
+    <text class="label" x="90" y="115">零售商</text>
+  </g>
+
+  <!-- 储存、消费 -> 消费者 -->
+  <g transform="translate(800,70)">
+    <rect class="box" x="0" y="0" width="180" height="48"/>
+    <text class="label" x="90" y="24">储存、消耗</text>
+
+    <line class="arrow" x1="90" y1="50" x2="90" y2="92"/>
+    <rect class="box" x="30" y="92" width="120" height="46"/>
+    <text class="label" x="90" y="115">消费者</text>
+  </g>
+
+  <!-- 销毁 -> 废弃 -->
+  <g transform="translate(1080,70)">
+    <rect class="box" x="-40" y="0" width="120" height="48"/>
+    <text class="label" x="20" y="24">销毁</text>
+
+    <line class="arrow" x1="20" y1="50" x2="20" y2="92"/>
+    <rect class="box" x="-10" y="92" width="60" height="46"/>
+    <text class="label" x="20" y="115">废弃</text>
+  </g>
+
+  <!-- 主链路：生产商 → 批发商 → 零售商 → 消费者 → 废弃 -->
+  <path class="arrow" d="M 215 185 L 360 185" />
+  <path class="arrow" d="M 480 185 L 610 185" />
+  <path class="arrow" d="M 730 185 L 830 185" />
+  <path class="arrow" d="M 950 185 L 1070 185" />
+
+  <!-- 冷链提示横条（置于主链下方） -->
+  <g transform="translate(300,230)">
+    <rect class="box" x="0" y="0" width="600" height="46"/>
+    <text class="label" x="300" y="23">全程温度控制确保冷链运输</text>
+  </g>
+
+
+  <!-- 下游：左侧来源 → 中间虚线框（产地/销地批发商、分销中心） → 右侧去向 -->
+  <!-- 左侧来源三盒 -->
+  <g transform="translate(80,360)">
+    <rect class="box" x="0" y="0" width="160" height="46"/>
+    <text class="label" x="80" y="23">农村合作社</text>
+
+    <rect class="box" x="0" y="70" width="160" height="46"/>
+    <text class="label" x="80" y="93">生产基地</text>
+
+    <rect class="box" x="0" y="140" width="160" height="46"/>
+    <text class="label" x="80" y="163">农户</text>
+  </g>
+
+  <!-- 中部虚线框 -->
+  <g transform="translate(410,340)">
+    <rect class="box-dashed" x="0" y="0" width="300" height="230"/>
+
+    <rect class="box" x="60" y="25" width="180" height="46"/>
+    <text class="label" x="150" y="48">产地批发商</text>
+
+    <rect class="box" x="60" y="95" width="180" height="46"/>
+    <text class="label" x="150" y="118">销地批发商</text>
+
+    <rect class="box" x="60" y="165" width="180" height="46"/>
+    <text class="label" x="150" y="188">分销中心</text>
+  </g>
+
+  <!-- 左到虚线框的三条箭头 -->
+  <path class="arrow" d="M 240 383 C 320 383, 360 383, 410 383"/>
+  <path class="arrow" d="M 240 453 C 320 453, 360 453, 410 453"/>
+  <path class="arrow" d="M 240 523 C 320 523, 360 523, 410 523"/>
+
+  <!-- 右侧去向三盒 -->
+  <g transform="translate(880,360)">
+    <rect class="box" x="0" y="0" width="180" height="46"/>
+    <text class="label" x="90" y="23">农贸市场</text>
+
+    <rect class="box" x="0" y="70" width="180" height="46"/>
+    <text class="label" x="90" y="93">商店超市</text>
+
+    <rect class="box" x="0" y="140" width="180" height="46"/>
+    <text class="label" x="90" y="163">生鲜专卖店</text>
+  </g>
+
+  <!-- 虚线框到右侧的三条箭头 -->
+  <path class="arrow" d="M 710 383 C 780 383, 830 383, 880 383"/>
+  <path class="arrow" d="M 710 453 C 780 453, 830 453, 880 453"/>
+  <path class="arrow" d="M 710 523 C 780 523, 830 523, 880 523"/>
+
+      </svg>
+      <style>
+    /* ——基础样式（透明底，不填充背景）—— */
+    :root {
+      --stroke:#333;
+      --fill:#f9fbed;
+      --text:#111;
+    }
+    html,body{margin:0;padding:0;background:transparent;}
+    svg{display:block;width:100%;height:auto;}
+
+    /* ——形状样式—— */
+    .box{
+      fill:var(--fill);
+      stroke:var(--stroke);
+      stroke-width:1.6;
+      rx:6; ry:6;
+    }
+    .box-dashed{
+      fill:none;
+      stroke:var(--stroke);
+      stroke-width:1.8;
+      stroke-dasharray:8 6;
+      rx:10; ry:10;
+    }
+    .label{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC",
+                  "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+      font-size:16px;
+      fill:var(--text);
+      dominant-baseline:middle;
+      text-anchor:middle;
+    }
+    .label-small{ font-size:14px; }
+    .hint{ font-size:14px; fill:#4a4a4a; }
+
+    .arrow{
+      stroke:var(--stroke);
+      stroke-width:1.8;
+      fill:none;
+      marker-end:url(#arrow);
+    }
+    .arrow-light{
+      stroke:#555; stroke-width:1.6; marker-end:url(#arrow);
+    }
+      </style>
+      <p>
+        依据该方法进行分析，荔枝供应链系统的碳足迹计算的边界包括<span class="highlight">生产环节、流通加工环节、贮存环节、运输环节、销售环节、配送环节、消费者环节以及荔枝腐损</span>带来的碳排放。
+      </p >
+    </div>
+      <div class="pipeline">
+          <!-- 生产 -->
+          <div class="step">
+          <img src="image/part2-碳足迹流程图/生产.png" alt="生产漫画">
+          <h4>生产</h4>
+          <span class="footprint">221 g/kg</span>
+          <div class="tooltip1">
+              生产环节的碳排放，由于受到气候和客观环境的影响，其中大部分是通过实验测量方法进行测量和计算，但实际测算的难度和周期是漫长而复杂的。农作物产生的碳排放量主要包括农业生产过程中使用的化肥投入、农药投入、塑料膜、柴油投入、灌溉用电以及农田氧化亚氮（N2O）的直接排放。
+          </div>
+          </div>
+  
+          <!-- 储存 -->
+          <div class="step">
+          <img src="image/part2-碳足迹流程图/储存.png" alt="储存漫画">
+          <h4>储存</h4>
+          <span class="footprint">0.2862 g/kg·d</span>
+          <div class="tooltip">
+              储存环节的碳排放采用单位时间（每天）冷库耗电量乘以当地电网碳强度的方式进行测算，以制冷机持续运行、湿度调控等耗能源带来的间接碳排为主要成因。
+          </div>
+          </div>
+  
+          <!-- 预冷 -->
+          <div class="step">
+          <img src="image/part2-碳足迹流程图/预冷.png" alt="预冷漫画">
+          <h4>预冷</h4>
+          <span class="footprint">8.3214 g/kg</span>
+          <div class="tooltip">
+              预冷环节的碳排放主要来自处理设备瞬时高能耗启动与运行期间的电力消耗。该环节提升保鲜有助减少腐损碳损失。通过衡量采后瞬时降温（如水预冷或空气预冷）所需的电耗测量碳足迹，并按每千克荔枝分摊计算。
+          </div>
+          </div>
+  
+          <!-- 包装 -->
+          <div class="step">
+          <img src="image/part2-碳足迹流程图/包装.png" alt="包装漫画">
+          <h4>包装</h4>
+          <span class="footprint">230.628 g/kg</span>
+          <div class="tooltip1">
+              包装环节则集中了包装材料的原料提取、加工制造与运输造成的碳排，例如泡沫箱或纸板的制造与运输。
+          </div>
+          </div>
+  
+          <!-- 运输 -->
+          <div class="step">
+          <img src="image/part2-碳足迹流程图/运输.png" alt="运输漫画">
+          <h4>运输</h4>
+          <span class="footprint">0.0817 g/t·km</span>
+          <div class="tooltip">
+              燃油或电力驱动的运输车辆碳排放成为主要来源，产地到目的地运输距离越长，累计排放越多。根据车辆类型的TOG（吨·公里）能耗与碳强度计算碳排后，换算到每公斤货物单位距离排放。
+          </div>
+          </div>
+  
+          <!-- 销售 -->
+          <div class="step">
+          <img src="image/part2-碳足迹流程图/销售.png" alt="销售漫画">
+          <h4>销售</h4>
+          <span class="footprint">25.59 g/kg·d</span>
+          <div class="tooltip">
+              销售环节的碳排放与制冷展示、亮灯、保鲜湿度控制、加热柜等设备持续运行所导致的电力相关碳排放息息相关。可通过计算荔枝在销售端（如超市陈列或电商仓）每延迟一天上架销售带来的额外制冷或运营能耗来测量。
+          </div>
+          </div>
+  
+          <!-- 废弃 -->
+          <div class="step">
+          <img src="image/part2-碳足迹流程图/腐烂.png" alt="废弃漫画">
+          <h4>废弃</h4>
+          <span class="footprint">41.21 g/kg</span>
+          <div class="tooltip1">
+              废弃环节的碳排放来自于果品腐败分解释放甲烷/CO₂的温室效应，加上废弃物的处理过程（运输、填埋、焚烧）导致的额外排放。一般通过将腐烂废弃的果品处理方式（如填埋、堆肥化或焚烧）按碳排因子折算为CO₂当量。
+          </div>
+          </div>
+          <img src="image/单个小荔枝.png" alt="插图" class="pipeline-lizhi-img" width="150px">
+      </div>
+      <h5 align="right">以上是荔枝全程冷链中主要环节碳足迹（数据来源于：广东农业科学《基于生命周期法的农产品供应链碳足迹分析》）</h5>
+    </section>
+
+    <div class="cover" id="3">
+      <img src="image/cover4.png" alt="封面4" class="cover-img">
+    <p class="cover-text cover-text-gradient" style="font-size:1.3em; font-weight:bold; text-align:center; margin:18px auto 0; max-width:700px; letter-spacing:0.06em; text-shadow:0 2px 12px #fff8, 0 4px 24px #e1eda0cc;">我在果园里生长，不只是依靠阳光雨露。<br>——在我的身边，还有一些意想不到的“朋友”和帮助——</p>
+    </div>
+    <section id="section3">
+      <h3>生产新范式</h3>
+      <p>
+        在荔枝生长的每一个环节，低碳理念正悄然改变着传统种植方式。通过抵御虫害，节约能源，减少化肥使用，荔枝得以在更加绿色、低碳的环境中茁壮成长。荔枝种植户们借助自然的力量与创新的智慧，为每一颗荔枝注入 “低碳基因”，每一颗荔枝的成长都成为了对可持续未来的承诺。
+      </p>
+    
+      <!-- 生物防治板块 -->
+      <div class="tech-module">
+        <div class="tech-content">
+          <h4>生物防治：以虫治虫的生态奇迹</h4>
+          <p>
+            荔枝蝽，作为荔枝生长的一大劲敌，过去常令果农们头疼不已。但如今，<span class="highlight">平腹小蜂</span>这位 “秘密武器” 登上了舞台。这种小小的寄生蜂，堪称荔枝蝽的 “天敌克星”。据统计，在东莞、广州等地的示范推广中，每次每亩投放 20 卡平腹小蜂卵卡，每卡羽化平腹小蜂预计 350 头。这些平腹小蜂雌成虫经交配后，便会主动在果园内穿梭，精准寻找荔枝蝽的卵，并将自己的卵产在其中。如此一来，荔枝蝽的卵便成了平腹小蜂幼虫的 “营养库”，无法正常孵化繁殖。<br><br>
+            数据显示，平腹小蜂对荔枝蝽卵的防治效果可达 70% - 90%。荔枝园应用平腹小蜂后，荔枝蝽的危害得到显著控制，<span class="highlight">不仅减少了化学农药的使用，还避免了开花期喷施农药对蜜蜂等有益传粉昆虫的伤害</span>，可谓一举两得。
+          </p>
+        </div>
+        <div class="tech-images">
+          <img src="image/荔枝蝽.png" alt="荔枝蝽" class="tech-img fly">
+          <img src="image/平腹小蜂.png" alt="平腹小蜂" class="tech-img fly">
+        </div>
+      </div>
+    
+      <!-- 非嗜食植物板块 -->
+      <div class="tech-module reverse">
+        <div class="tech-images">
+          <img src="image/植物.png" alt="非嗜食植物"  class="tech-img fly">
+        </div>
+        <div class="tech-content">
+          <h4>非嗜食植物次生化合物：天然的害虫驱避剂</h4>
+          <p>
+            除了以虫治虫，研究表明，白花非洲山毛豆、飞机草和大叶桉的乙醇提取物对荔枝蒂蛀虫成虫产卵有着神奇的驱避作用。在广西、广东等地的研究与实践中发现，这些<span class="highlight">非嗜食植物次生化合物</span>的驱避效果在 80% - 90% 之间。<br><br>
+            当在荔枝园周边合理种植这些植物，或者将其提取物进行适当处理后应用于果园，处理区对荔枝蒂蛀虫的防治效果可达 70% 以上。这一发现，为荔枝种植开辟了一条绿色防控的新路径，<span class="highlight">减少了化学农药的依赖</span>，让荔枝在更加自然、健康的环境中成长。
+          </p>
+        </div>
+      </div>
+    
+      <!-- 沼渣还田板块 -->
+      <div class="tech-module">
+        <div class="tech-content">
+          <h4>沼渣还田：废弃物的华丽转身</h4>
+          <p>
+            在广东高州市，一场关于肥料革命的实践正在上演。自 2021 年被列为全国首批绿色种养循环农业试点县以来，高州市政府大力推动粪肥还田技术在荔枝种植中的应用。三年间，超过 15 万亩荔枝园参与其中，探索出 “粪肥 + 配方肥 + 机械深施” 等多种模式。<br><br>
+            在施用基肥或追肥时，果农们通过机械或人工在果树的滴水线旁挖深穴或施肥沟，每株施入约 20 公斤粪肥。这一举措成效显著，化肥用量减少 20%，荔枝却实现了增产 14%，糖度增加 2.2%，维生素 C 含量提高 16.3%。果实鲜红饱满、果肉晶莹透亮、口味清脆甜香，市场竞争力大幅提升，平均田头价格卖到了 12 元 / 斤。<br><br>
+            通过构建 “猪场 + 沼气 + 果园 + 沼液肥” 等畜禽粪污收集处理利用模式，高州市年处理消纳畜禽粪污达 19 万吨，连续两年推动全市畜禽粪便资源利用率达 95% 以上，<span class="highlight">不仅解决了养殖业污染问题，还为荔枝种植提供了优质的有机肥源，实现了农业废弃物的资源化利用</span>，为低碳农业发展提供了宝贵经验。
+          </p>
+          
+        </div>
+        <div class="tech-images">
+          <img src="image/有机肥.png" alt="沼渣还田"  class="tech-img fly">
+        </div>
+      </div>
+      <div id="fertilizer-chart" class="chart-box">
+    </div>
+    <h5 align="right">（数据来源于：微观三农《广东省高州市绿色种养 结美“荔”硕果》）</h5>
+      <p>
+        这些低碳技术的综合应用，正在从化及更多荔枝产区构建一个<span class="highlight">绿色、高效、可持续</span>的种植体系。它们不仅守护着荔枝的品质与产量，更让每一颗荔枝在成长过程中，践行着低碳环保的理念，为地球的绿色未来贡献力量。
+      </p>
+    </section>
+    
+
+    <div class="cover" id="4">
+      <img src="image/cover5.png" alt="封面5" class="cover-img">
+    <p class="cover-text cover-text-gradient" style="font-size:1.3em; font-weight:bold; text-align:center; margin:18px auto 0; max-width:700px; letter-spacing:0.06em; text-shadow:0 2px 12px #fff8, 0 4px 24px #e1eda0cc;">——我曾被快马加鞭送往长安，如今乘着冷链列车穿越山海——</p>
+    </div>
+    <section id="section4">
+  <h3>冷链vs常温</h3>
+    <p>近年来，谈及生鲜运输，公众首先联想到的往往是<span class="highlight">“冷链运输”</span>。荔枝作为一种极易腐败的水果，在常温下的赏味期限极短，远距离运输面临巨大挑战。自古以来，荔枝的保鲜一直是难题，唐代主要依靠驿道快马和竹筒密封进行保护，而现代则借助冷链物流技术，实现了从采摘到终端销售“温度不断链”的全程低温控制。</p>
+    <span class="transport-img-row">
+      <img src="image/part4-冷链运输/唐朝运输.jpg" alt="唐朝运输漫画" class="transport-img">
+      <img src="image/part4-冷链运输/现代运输.jpg" alt="现代运输漫画" class="transport-img">
+    </span>
+    <p>现代冷冻技术能够将温度降至零下30℃，荔枝采摘后迅速预冷，再通过冷链运输，最大限度地保持果实的新鲜，实现“从枝头到舌尖”的鲜美传递。荔枝作为中国重要的水果品类，年产量达264.97万吨，按19%的冷链覆盖率估算，其供应链碳排放总量高达8002万吨二氧化碳当量（CO₂e）。</p>
+    <p>现今，多家冷链及快递企业已具备全程保障荔枝鲜度的能力。值得注意的是，<span class="highlight">冷链系统本身也是显著的碳排放源，</span>约占全球电力消耗的15%及碳排放的1%。</p>
+    <p align="center"><span class="highlight-tittle highlight-animate">那么改用常温运输会带来更低的碳排放吗？</span></p>
+    <p>全球范围内，约40%的食品需要依赖冷链物流，但因冷链不足，仍有<span class="highlight">超过13%的食物被浪费，</span>其中63%的损耗集中在发展中国家。以中国为例，2021年食品冷链物流需求超过3亿吨，但冷链流通综合覆盖率仅为19%，每年因食品浪费带来的经济损失高达6800亿元，同时占全国温室气体排放的4%。全球食品系统贡献了约30%的温室气体排放，其中7%源自食物损耗与浪费（FLW）。</p>
+    <div class="land-row">
+        <img src="image/part4-冷链运输/鲜荔枝.PNG" alt="鲜荔枝" class="land-img">
+        <p><span class="highlight">也就是说，从经济效应出发，冷链运输模式下的荔枝货架期更长，腐烂率更低，进一步会促进环境效应的提升。</span></p>
+    </div>
+    <div class="land-row">
+        <p>有研究提出了单位有效碳排放方法，冷链流通下的碳排放比常温流通减少了34.84%。
+        在冷链流通场景下，荔枝的单位有效碳排放为0.38 kgCO₂/kg，综合碳排放效用为85.33%。</p>
+      <img src="image/part4-冷链运输/货车.PNG" alt="货车" class="land-img">
+    </div>
+    <div class="land-row">
+        <p>提升冷链流通比例不仅能提高综合碳效用，还能实现节约土地的目标。
+        若将当前中国的冷链流通率提升至95%，则荔枝供应链的综合碳排放效用将提升至81.65%，所需土地面积减少54.84%。</p>
+      <img src="image/part4-冷链运输/土地素材.PNG" alt="土地" class="land-img">
+    </div>
+     <h5 align="right">（数据来源于：《Calculation and utility analysis of lychee life-cycle carbon emissions considering food loss and waste》）</h5></h5>
+    <p>因此，在满足消费者对新鲜荔枝日益增长需求的同时，物流行业需平衡经济效益与环境影响。快速运输虽然保证了产品鲜度，但伴随高能耗交通工具的碳排放和大气污染问题亦需引起高度关注，推动绿色低碳冷链技术与管理创新成为未来发展的关键。</p>
+    </section>
+
+
+    <div class="cover" id="5">
+      <img src="image/cover6.png" alt="封面6" class="cover-img">
+    <p class="cover-text cover-text-gradient" style="font-size:1.3em; font-weight:bold; text-align:center; margin:18px auto 0; max-width:700px; letter-spacing:0.06em; text-shadow:0 2px 12px #fff8, 0 4px 24px #e1eda0cc;">我从岭南走向世界，带着甜蜜也带着使命<br>——这是属于我绿色升级的征程——</p>
+    </div>
+    
+    <section id="section5">
+      <div class="text-container">
+        <h3>出口低碳新时代</h3>
+        <p>我从岭南走向世界，带着甜蜜也带着使命，这是属于我绿色升级的征程。</p>
+      </div>
+    
+      <!-- 左右布局：左边地图，右边柱状图和桑基图 -->
+      <div class="chart-wrapper">
+        <!-- 左半边地图 -->
+        <div class="left-chart">
+          <h3>2025年荔枝生产地图</h3>
+          <p class="hint-text">
+            （鼠标悬浮查看荔枝生产数据）
+            </p>
+          <div class="chart-container" id="lychee-map"></div>
+        </div>
+    
+        <!-- 右半边 -->
+        <div class="right-chart">
+          <div class="map-box">
+            <h3>2025年5-6月荔枝电商销量目的地</h3>
+            <div id="bar-chart" class="chart-inner"></div>
+          </div>
+    
+          <!-- 下面桑基图 -->
+          <div class="map-box">
+            <h3>热门荔枝品种及主要销售市场</h4>
+            <img src="image/桑基图.png" alt="桑基图" class="sankey-img">
+          </div>
+        </div>
+      </div>
+      <h5 align="right">（数据来源于：抖音电商数据、《2025年全国荔枝生产形势分析与管理建议》）</h5>
+<div class="text-container">
+  <p>
+    全国销售版图反映了<span class="highlight">“南甜北渐，全面开花”</span>的态势。广东作为荔枝主产地，本地消费占比达 12.4%，位居第一。但荔枝早已突破地域限制，走向全国各地。北京、江浙沪、山东等地的荔枝消费量紧随广东之后。特别是今年，随着荔枝丰收及物流、保鲜技术发展，荔枝价格更加亲民，进一步推动其在全国的销售。<br><br>
+    据相关数据，新疆、宁夏、西藏等西北地区的荔枝销量同比增速均超 3.6 倍 ，曾经稀缺的荔枝如今在全国各地的餐桌上愈发常见。在华北地区，今年荔枝销售旺季，大型水果批发市场的荔枝日交易量平均达 150 吨，较去年同期增长 120%；在东北地区，通过电商平台销售至黑龙江、吉林、辽宁等地的荔枝订单量同比增长 280%，且消费者购买频次增加，从去年的人均购买 1.2 次提升至今年的 2.1 次。
+  </p>
+</div> 
+
+<div class="text-container">
+  <p>
+    与此同时，中国荔枝也在出口端取得增长：从2018年起，出口贸易顺差从0.64亿美元增加至2022年的0.92亿美元，增幅约43.17%。2022年出口总量47,612.77吨、金额9,294.99万美元。
+  </p>
+  <img src="image/柱状图.png" alt="贸易顺差" class="trade-img">
+</div>
+          <div class="text-container">
+        <p class="">其中鲜荔枝出口量14,548.74吨（占比30.56%），金额4,412.9万美元（占47.48%）；罐头荔枝量33,035.04吨（69.38%），金额4,864.35万美元（52.33%）；荔枝干极少，仅28.99吨、17.73万美元。这表明鲜荔枝在出口结构中占据重要地位，对物流与保鲜提出更高要求。</p>
+        <div style="display: flex; gap: 1px; justify-content: center; margin: 0 0;">
+          <div id="main1" style="width:450px;height:400px;"></div>
+          <div id="main2" style="width:450px;height:400px;"></div>
+        </div>  
+        <h5 align="right">（数据来源于：知乎《2023年中国荔枝产业数据分析简报》）</h5>
+        <script>
+          var chartDom = document.getElementById('main1');
+          var myChart = echarts.init(chartDom);
+          var option = {
+            backgroundColor: 'transparent', 
+            title: {
+              text: '出口量（单位：吨）',
+              textStyle: { color: '#235894' }
+            },
+            tooltip: {},
+            series: [
+              {
+                type: 'pie',
+                radius: '60%',
+                label: { fontSize: 16, color: '#235894' },
+                data: [
+                  { value: 28.99, name: '荔枝干' },
+                  { value: 14548.74, name: '鲜荔枝' },
+                  { value: 33035.04, name: '荔枝罐头' },
+                ],
+                itemStyle: {
+                  opacity: 0.8,
+                  color: function(params) {
+                    const colors = ['#FF6B6B','#FFD93D','#6BCB77','#4D96FF','#8447FF'];
+                    return colors[params.dataIndex % colors.length];
+                  },
+                  borderWidth: 2,
+                  borderColor: '#235894'
+                }
+              }
+            ]
+          };
+      
+          myChart.setOption(option);
+        </script>
+        <script>
+          var chartDom = document.getElementById('main2');
+          var myChart = echarts.init(chartDom);
+      
+          var option = {
+            backgroundColor: 'transparent', 
+            title: {
+              text: '出口金额（单位：万美元）',
+              textStyle: { color: '#235894' }
+            },
+            tooltip: {},
+            series: [
+              {
+                type: 'pie',
+                radius: '60%',
+                label: { fontSize: 16, color: '#235894' },
+                data: [
+                  { value: 17.73, name: '荔枝干' },
+                  { value: 4412.9, name: '鲜荔枝' },
+                  { value: 4864.35, name: '荔枝罐头' },
+                ],
+                itemStyle: {
+                  opacity: 0.8,
+                  color: function(params) {
+                    const colors = ['#FF6B6B','#FFD93D','#6BCB77','#4D96FF','#8447FF'];
+                    return colors[params.dataIndex % colors.length];
+                  },
+                  borderWidth: 2,
+                  borderColor: '#235894'
+                }
+              }
+            ]
+          };
+          myChart.setOption(option);
+        </script>
+
+        <p>
+          荔枝在全球市场中的潜力不容忽视：Research and Markets预计，到2028年全球荔枝市场规模将达87.9亿美元。这伴随着国际上对绿色环保越来越严的要求，<span class="highlight">“绿色贸易壁垒”成为现实挑战</span>。绿色贸易壁垒是指在国际贸易活动中，进口国以保护自然资源、生态环境和人类健康为由而制定的一系列限制进口的措施。这催生了“低碳 + 可溯源”体系的建设需求。
+        </p >
+      
+        <p>
+          值得关注的是广东在该领域的领先实践：广州从化区联合政府、检验机构、气象中心与保险公司，创建全国首个荔枝全生命周期守护项目，通过“气象防灾预警 + 碳足迹核算 + 碳足迹保险”，形成“一条链”服务体系，提升抗风险能力，同时为绿色出口背书。广东省广业检验检测集团负责人透露：“我们将重点支持企业绿色品牌认证工作，将融合‘碳足迹’创新理念的优质荔枝推向广阔的海外市场，赋予荔枝产品独特的低碳价值，对接国际市场上的绿色低碳消费需求。”
+        </p >
+      
+        <p>
+        在政策端，“建立产品碳足迹管理体系、碳标识认证制度”已被列入 2025 年政府工作报告中，这是响应绿色贸易壁垒挑战、提升出口产品国际竞争力的重要举措。根据国家《实施方案》，到 2027 年重点产品碳足迹管理体系计划初步建立，涵盖约 100 个产品的核算规则、因子数据库及标识认证制度；目标至 2030 年进一步完善并实现国际对接。另外，2023 年《意见》明确指出，到 2025 年将在国家层面出台约 50 个重点产品的碳足迹标准，并建立认同的碳标识认证制度。
+        </p >
+
+
+      
+      <div class="policy-img-row">
+        <a href=" " target="_blank">
+          <img src="image/政策截图1.png" alt="政策截图1">
+        </a >
+        <a href="https://topics.caixin.com/2025-03-05/102294993.html" target="_blank">
+          <img src="image/政策截图2.png" alt="政策截图2">
+        </a >
+      </div>
+      
+      <div class="policy-img-row">
+        <a href="https://www.ndrc.gov.cn/wsdwhfz/202312/t20231206_1362482.html" target="_blank">
+          <img src="image/政策截图4.png" alt="政策截图4">
+        </a >
+        <a href="https://www.ndrc.gov.cn/" target="_blank">
+          <img src="image/政策截图3.png" alt="政策截图3">
+        </a >
+      </div>
+        <p>
+        国际经验表明，面对越来越严的绿色贸易壁垒，为使中国荔枝出口真正迈入“绿色溯源”时代，有必要引入<span class="highlight">全生命周期碳足迹核算和“碳标签”认证体系</span>。将碳足迹追踪与绿色认证融入出口流程，不仅关乎合规，更能提升中国荔枝在国际市场中的品牌溢价和竞争力。
+        </p >
+       <div class="orange-row">
+        <p>
+        <span class="highlight">蒲江爱媛橙</span>以生命周期评价方法为基础，计算产品的碳足迹，一共梳理了原辅料获取、栽培养护及采摘、产品包装物获取、入库储存、分拣包装五个单元数十个作业流程所产生的碳排放量，得出蒲江爱媛橙的碳排放量为<span class="highlight">0.295千克</span>，可以成为荔枝突破绿色贸易壁垒的经验借鉴。
+        </p >
+        <img src="image/爱媛橙.png" alt="爱媛橙例子" class="orange-img" width="300px">
+        </div>
+        <h5 align="right">（图片来源：亚洲水果报道：《蒲江爱媛橙获全国首个橙类“碳标签”认证》）</h5>
+        <p>
+          通过“低碳+可溯源”的手段，中国荔枝出口将更具市场竞争力，有望赢得国际消费者和监管方的青睐。
+        </p >
+      </section>
+
+<!-- 成员名单 -->
+<footer class="team-footer" id="6">
+  <h3>制作成员</h3>
+  <p>文本撰写：曹璐 杨依婷</p>
+  <p>数据分析可视化：杨依婷 曹璐</p>
+  <p>美工：葛诗琪</p>
+  <p>网页搭建：杨依婷 曹璐</p>
+  <p>指导老师：赵路平</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
