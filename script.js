@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
   /* ------------------ 左侧荔枝路径滚动 ------------------ */
   const lizhi = document.getElementById("lizhi-icon-svg");
