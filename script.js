@@ -6,13 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll("section");
   const sidebar = document.getElementById("sidebar");
   const content = document.getElementById("content");
-  const cover = document.querySelector(".cover");
+  const cover0 = document.querySelector(".cover0");
+  const cover1 = document.querySelector(".cover-before");
 
   const pathLength = 1050; 
 
   function updateLizhiPosition() {
       const scrollY = window.scrollY;
-      const startOffset = window.innerHeight;
+      const startOffset = 2*window.innerHeight;
       const totalHeight = document.body.scrollHeight - window.innerHeight - startOffset;
 
       let scrollRatio = 0;
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleScroll() {
       const scrollTop = window.scrollY;
       const windowHeight = window.innerHeight;
-      if (scrollTop > windowHeight * 0.8) {
+      if (scrollTop > windowHeight * 1.8) {
           sidebar.classList.add("visible");
           content.classList.add("with-sidebar");
       } else {
@@ -70,13 +71,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   document.querySelector(".scroll-indicator")?.addEventListener("click", () => {
-      window.scrollTo({ top: cover.offsetHeight, behavior: "smooth" });
+      window.scrollTo({ top: cover0.offsetHeight, behavior: "smooth" });
   });
 
   window.addEventListener("scroll", handleScroll);
   handleScroll();
 
-  
 
   /* ------------------ highlight 文字入场 ------------------ */
   document.querySelectorAll('.highlight-animate').forEach(el => {

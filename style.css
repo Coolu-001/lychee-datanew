@@ -1,3 +1,42 @@
+/* 荔枝装饰图片样式 */
+.lizhi-deco {
+  position: absolute;
+  width: min(9vw, 64px);
+  height: min(9vw, 64px);
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.92;
+  filter: drop-shadow(0 4px 12px #f8786c33);
+  animation: lizhiFloat 4.2s ease-in-out infinite alternate;
+  transition: width 0.3s, height 0.3s;
+}
+.lizhi-deco-topleft {
+  top: 2vw;
+  left: 2vw;
+  transform: rotate(-18deg) scale(1.05);
+  animation-delay: 0s;
+}
+.lizhi-deco-bottomright {
+  bottom: 2vw;
+  right: 2vw;
+  transform: rotate(16deg) scale(0.98);
+  animation-delay: 2.1s;
+}
+@media (max-width: 700px) {
+  .lizhi-deco {
+    width: 38px;
+    height: 38px;
+  }
+  .lizhi-deco-topleft {
+    top: 8px;
+    left: 8px;
+  }
+  .lizhi-deco-bottomright {
+    bottom: 8px;
+    right: 8px;
+  }
+}
 .cover-text-gradient {
   background: linear-gradient(90deg, #f8786c 10%, #6B8E23 90%);
   -webkit-background-clip: text;
@@ -11,8 +50,15 @@
 }
 /* 封面主图动效 */
 .cover-img-animate {
+  display: block;              /* 让图片独占一行 */
+  margin: 0 auto;              /* 水平居中 */
+  max-width: 40vw;             /* 宽度不超过页面宽度的三分之一 */
+  max-height: 40vh;            /* 高度不超过页面高度的三分之一 */
+  object-fit: contain;         /* 保持宽高比例 */
+  position: absolute;          /* 绝对定位 */
+  left:18%;
+  top:25%;  
   z-index: 1;
-  box-shadow: 0 8px 40px #f8786c33, 0 2px 12px #e1eda0cc;
   animation: coverImgIn 1.2s cubic-bezier(.4,2,.6,1), imgFloat 3.5s 1.2s cubic-bezier(.4,2,.6,1) infinite alternate;
 }
 @keyframes coverImgIn {
@@ -56,6 +102,18 @@ body, html {
     background:
     url("image/封面背景.jpg") center center/cover no-repeat;
 }
+.cover-before {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--cover-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 24px;
+    padding-bottom: 0;
+}
 /* 封面整体 */
 .cover {
   position: relative;
@@ -90,7 +148,60 @@ body, html {
   font-family: "STSong", "KaiTi", serif; /* 中文优雅字体 */
 }
 
+.glass-textbox {
+  width: 90%;
+  max-width: 900px;
+  background: rgba(255,255,255,0.32);
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  border-radius: 22px;
+  border: 1.5px solid rgba(107,142,35,0.18);
+  padding: 32px 36px 28px 36px;
+  color: #2C3E50;
+  font-size: 1.18rem;
+  line-height: 2.1;
+  font-family: 'Siyuan-regular', serif;
+  text-align: center;
+  letter-spacing: 0.02em;
+  box-sizing: border-box;
+  margin: 0 auto;
+  position: static;
+  animation: glassFloat 3.5s ease-in-out infinite alternate;
+}
 
+@keyframes glassFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+.glass-textbox p {
+  margin: 0 0 18px 0;
+  background: none;
+  color: #2C3E50;
+  font-size: 1.18rem;
+  line-height: 2.1;
+  font-family: 'Siyuan-regular', serif;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 700px) {
+  .cover-before {
+    gap: 12px;
+    padding-bottom: 0;
+  }
+  .glass-textbox {
+    width: 98%;
+    padding: 18px 8px 16px 8px;
+    font-size: 1em;
+  }
+  .glass-textbox p {
+    font-size: 1em;
+  }
+  .cover-bottom-bg {
+    height: 120px;
+  }
+}
 .highlight {
     background-color: #fff59d; 
     padding: 2px 6px;           
@@ -111,6 +222,7 @@ body, html {
     justify-content: center;
     padding-top: 10px;
     box-sizing: border-box;
+    z-index: 10;
 }
 
 .scroll-indicator::after {
